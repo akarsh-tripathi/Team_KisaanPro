@@ -4,71 +4,72 @@
 @using Twilio.Rest.Api.V2010.Account
 
 <PageTitle>Kisaan Pro</PageTitle>
-<header>
-<div class="Header">
-        <img  src="Assets/logo.svg" alt="" data-image-width="161" data-image-height="44">
-        <h6 class="LastUpdated"> Last Updated : 15 Jan 22 11:49 am</h6>
-        <object data='./Assets/logo.svg' type='image/svg+xml' width='500' height='500' />
 
-      </div>
-      </header>
-    <section class="SectionStart">
-      <div class="MainDashboard">
-        <div class="AllNotificationsDiv">
-            <MudBadge Content="3" Color="Color.Primary" Overlap=true >
-              <MudButton Link="" Variant="Variant.Outlined" >System Status<span>1</span></MudButton>
-            </MudBadge>
-          <div class="NotificationDiv">
-            <MudButton Link="" Variant="Variant.Outlined" >Notifications</MudButton>
-            <div class="u-custom-color-6 u-shape u-shape-circle u-shape-1"></div>
-          </div>            
-          <div class="ServerStatusDiv">
-            <MudButton Link="" Variant="Variant.Outlined" >Server Status</MudButton>
-            <div class="u-custom-color-2 u-shape u-shape-circle u-shape-2"></div>
-          </div>
+<div class="Main" style="height:100%; width:80%; margin:10px 40px 10px 40px; align-items:start">
+    <header>
+        <div class="Header">
+                <img  src="/Assets/logo.svg" alt="" data-image-width="161" data-image-height="44">
+                <h6 class="LastUpdated"> Last Updated : 15 Jan 22 11:49 am</h6>
+                <object data='./Assets/logo.svg' type='image/svg+xml' width='500' height='500' />
         </div>
-
-        <div class="RegisterDeviceDiv">
-          
-          <MudTextField @bind-Value="TextValue" Label="Enter Device ID to add" Variant="Variant.Filled"></MudTextField>
-          <MudButton Link="" Variant="Variant.Outlined" >Register</MudButton>
-        
-        </div>
-        <div class="StausCheckDiv">
-            <MudButton Link="" Variant="Variant.Outlined" >Check Your Device Status</MudButton>
-            <MudButton Link="" Variant="Variant.Outlined" >solar powered battery<span>80%</span></MudButton>
-        </div>
-        <div class="StatusShowDiv">
-
-        </div>       
-
-        <div class="GraphAreaDiv">
-            <MudButton Link="" Variant="Variant.Outlined" >Temperature</MudButton>
-            <MudButton Link="" Variant="Variant.Outlined" >pH level</MudButton>
-            <MudButton Link="" Variant="Variant.Outlined" >Humidity</MudButton>
-            <div class="GraphsDiv">
-                <h2 class="DatatoShow">39 C</h2>        
-            </div>
-            
-        </div>
-        
-        <div class="RecommendationBoxDiv">
-            <MudButton Link="" Variant="Variant.Outlined" >Recommendation Box</MudButton>
-            <img class="TtsSpeak" src="Assets/tts.svg" alt="" data-image-width="19" data-image-height="19">
-            <div class="Box">
-              <div class="BoxText">
-                <p class="RecommendationText" spellcheck="false"> Past few days the temperature is above average, hence not suitable for better yeild. According to&nbsp;our  precipitation rate is 10mm/hr.&nbsp;The Water required in the feild would be 20L per 6 Hrs</p>
+    </header>
+        <section class="SectionStart">
+          <div class="MainDashboard">
+            <div class="AllNotificationsDiv">
+                <MudBadge Content="3" Color="Color.Primary" style="width:30%" Overlap=true >
+                  <MudButton Link="" Variant="Variant.Outlined" Style="font-size:8vw; background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >System Status</MudButton>
+                </MudBadge>
+              <div class="NotificationDiv">
+                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Notifications</MudButton>
+              </div>            
+              <div class="ServerStatusDiv">
+                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Server Status</MudButton>
+                <div class="u-custom-color-2 u-shape u-shape-circle u-shape-2"></div>
               </div>
             </div>
-        </div>
 
-        <div class="IrrigationDiv">
-           <MudButton Variant="Variant.Outlined" >Irrigation Pump Switches</MudButton>
-           <MudButton Variant="Variant.Outlined"  Style="width:200px; height:116px;" >Start</MudButton>
-           <MudButton Variant="Variant.Outlined" Style="width:200px; height:116px" >Stop</MudButton>
-        </div>
-      </div>
+            <div class="RegisterDeviceDiv">
+          
+              <MudTextField @bind-Value="TextValue" Label="Enter Device ID to add" style="height:100%; width:60%" Variant="Variant.Filled"></MudTextField>
+              <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Register</MudButton>
+            </div>
+            <div class="StausCheckDiv">
+                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Check Your Device Status</MudButton>
+                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >solar powered battery<span>80%</span></MudButton>
+            </div>
+            <div class="StatusShowDiv">
+
+            </div>       
+
+            <div class="GraphAreaDiv">
+                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Temperature</MudButton>
+                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >pH level</MudButton>
+                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Humidity</MudButton>
+                <div class="GraphsDiv">
+                    <h2 class="DatatoShow">39 C</h2>
+                    <MudChart ChartType="ChartType.Line" ChartSeries="@Series" @bind-SelectedIndex="index" XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="chartOptions"></MudChart>
+                </div>
+            
+            </div>
+        
+            <div class="RecommendationBoxDiv">
+                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Recommendation Box</MudButton>
+                <img class="TtsSpeak" src="Assets/tts.svg" alt="" data-image-width="19" data-image-height="19">
+                <div class="Box">
+                  <div class="BoxText">
+                    <p class="RecommendationText" spellcheck="false"> Past few days the temperature is above average, hence not suitable for better yeild. According to&nbsp;our  precipitation rate is 10mm/hr.&nbsp;The Water required in the feild would be 20L per 6 Hrs</p>
+                  </div>
+                </div>
+            </div>
+
+            <div class="IrrigationDiv">
+               <MudButton Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Irrigation Pump Switches</MudButton>
+               <MudButton Variant="Variant.Outlined"  Style="width:200px; height:116px; border: 6px solid #3AB307; border-radius: 15px" >Start</MudButton>
+               <MudButton Variant="Variant.Outlined" Style="font-size:8vw; width:200px; height:116px; border: 6px solid #FF0000; border-radius: 15px" >Stop</MudButton>
+            </div>
+          </div>
     </section>
+</div>
 
 @code{
     public string Time ;
@@ -98,11 +99,21 @@
         var message = MessageResource.Create(
            body: Command!="Stop"?"Start":"Stop",
            from: new Twilio.Types.PhoneNumber("+18063047362"),
-           to: new Twilio.Types.PhoneNumber(Number)
-       );
+           to: new Twilio.Types.PhoneNumber(Number) );
         Console.WriteLine(message.Sid);
     }
+    // Chart
+     private int index = -1; //default value cannot be 0 -> first selectedindex is 0.
 
+    public ChartOptions chartOptions = new ChartOptions();
+
+    public List<ChartSeries> Series = new List<ChartSeries>()
+    {
+        new ChartSeries() { Name = "Temperature", Data = new double[] { 90, 79, 72, 69, 62, 62, 55, 65, 70 } },
+    };
+    public string[] XAxisLabels = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep" };
+
+   
 
 
 }
