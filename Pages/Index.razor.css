@@ -2,12 +2,6 @@
     font: 400 12px arial;
 }
 
-.Main {
-    margin: 2% 30%;
-    padding: 4%;
-}
-.Header {
-    top: 10px; left: 10px;
-    display: inline-block;
-    position: absolute;
+div{
+    margin: 10px 40px;
 }

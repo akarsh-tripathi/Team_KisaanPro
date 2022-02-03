@@ -5,69 +5,119 @@
 
 <PageTitle>Kisaan Pro</PageTitle>
 
-<div class="Main" style="height:100%; width:80%; margin:10px 40px 10px 40px; align-items:start">
+<style>
+    .MudButton{
+        font-size: 3vw;
+    }
+</style>
+
+<div class="Main" style="height:auto; width:100%; align-items: center;">
     <header>
-        <div class="Header">
-                <img  src="/Assets/logo.svg" alt="" data-image-width="161" data-image-height="44">
-                <h6 class="LastUpdated"> Last Updated : 15 Jan 22 11:49 am</h6>
-                <object data='./Assets/logo.svg' type='image/svg+xml' width='500' height='500' />
+        <div class="Header" style="display: flex; justify-content: space-between">
+            <img  src="Assets\logo.png" >
+            <h7 class="LastUpdated"> Last Updated : 15 Jan 22 11:49 am</h7>
+                
         </div>
     </header>
-        <section class="SectionStart">
-          <div class="MainDashboard">
-            <div class="AllNotificationsDiv">
-                <MudBadge Content="3" Color="Color.Primary" style="width:30%" Overlap=true >
-                  <MudButton Link="" Variant="Variant.Outlined" Style="font-size:8vw; background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >System Status</MudButton>
-                </MudBadge>
-              <div class="NotificationDiv">
-                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Notifications</MudButton>
-              </div>            
-              <div class="ServerStatusDiv">
-                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Server Status</MudButton>
-                <div class="u-custom-color-2 u-shape u-shape-circle u-shape-2"></div>
-              </div>
+    <section class="SectionStart" >
+        <div class="MainDashboard">
+            <div class="AllNotificationsDiv" style="display: flex; justify-content:space-between;">
+                
+                
+                <div class="SystemStatusDiv">
+                    <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: auto ; height: 40px; border: 1px solid #B4B4B4;
+                                                                         box-sizing: border-box;
+                                                                         border-radius: 15px; " >System Status
+                                                                        </MudButton>
+                </div>           
+                <div class="NotificationDiv">
+                    <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: auto; height: 40px; border: 1px solid #B4B4B4;
+                                                                         box-sizing: border-box;
+                                                                         border-radius: 15px; " >Notifications</MudButton>
+                </div>            
+                <div class="ServerStatusDiv">
+                    <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: auto; height: 40px; border: 1px solid #B4B4B4;
+                                                                         box-sizing: border-box;
+                                                                         border-radius: 15px;" >Server Status</MudButton>
+                    <div class="u-custom-color-2 u-shape u-shape-circle u-shape-2"></div>
+                </div>
             </div>
 
-            <div class="RegisterDeviceDiv">
+            <div class="RegisterDeviceDiv" style="display: flex; justify-content:space-between ; align:align-center">
           
-              <MudTextField @bind-Value="TextValue" Label="Enter Device ID to add" style="height:100%; width:60%" Variant="Variant.Filled"></MudTextField>
-              <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Register</MudButton>
+                <MudTextField @bind-Value="TextValue" Label="Enter Device ID to add" style="width:auto; height: 50px;border: 1px solid #AFAFAF;
+                                                                                            border-radius: 9px;" Variant="Variant.Filled"></MudTextField>
+                <MudButton Link="" Variant="Variant.Outlined" Style=" color: white; width:35%; height: 50px;background: #3AB307;
+                                                                     border-radius: 7.5px;" >Register</MudButton>
             </div>
             <div class="StausCheckDiv">
-                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Check Your Device Status</MudButton>
-                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >solar powered battery<span>80%</span></MudButton>
+                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border: 1px solid #B4B4B4;
+                                                                     box-sizing: border-box;
+                                                                     border-radius: 15px;" >Check Your Device Status</MudButton>
+                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 40%; height: 30px; border: 1px solid #B4B4B4;
+                                                                     box-sizing: border-box;
+                                                                     border-radius: 15px;" >Solar Powered Battery<span style="color: #3AB307;font-weight:600; margin-left:50px">80%</span></MudButton>
             </div>
             <div class="StatusShowDiv">
 
             </div>       
 
             <div class="GraphAreaDiv">
-                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Temperature</MudButton>
-                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >pH level</MudButton>
-                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Humidity</MudButton>
+                <MudButton Link="" Variant="Variant.Outlined" Style="color: white; width: 20%; height: 30px; background: #0075FF;
+                                                                     border: 1px solid #0075FF;
+                                                                     box-sizing: border-box;
+                                                                     border-radius: 15px; " >Temperature</MudButton>
+                <MudButton Link="" Variant="Variant.Outlined" Style="color: #B4B4B4; width: 20%; height: 30px; background: white;
+                                                                     border: 1px solid #B4B4B4;
+                                                                     box-sizing: border-box;
+                                                                     border-radius: 15px;" >pH level</MudButton>
+                <MudButton Link="" Variant="Variant.Outlined" Style="color: #B4B4B4; width: 20%; height: 30px; background: white;
+                                                                     border: 1px solid #B4B4B4;
+                                                                     box-sizing: border-box;
+                                                                     border-radius: 15px;" >Humidity</MudButton>
                 <div class="GraphsDiv">
-                    <h2 class="DatatoShow">39 C</h2>
+                    <div style="display:flex; justify-items:inherit. margin:5px">
+                        <h2 class="DatatoShow">39 C</h2> 
+                        <h7 class="Datawarning" style="color: Red; ">  Warning*</h7>
+                    </div>
+                    
                     <MudChart ChartType="ChartType.Line" ChartSeries="@Series" @bind-SelectedIndex="index" XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="chartOptions"></MudChart>
                 </div>
             
             </div>
         
             <div class="RecommendationBoxDiv">
-                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Recommendation Box</MudButton>
-                <img class="TtsSpeak" src="Assets/tts.svg" alt="" data-image-width="19" data-image-height="19">
+                <MudButton Link="" Variant="Variant.Outlined" Style="background: #0075FF; width:35%; height:30%; color: White;
+                                                                     border: 1px solid #B4B4B4;
+                                                                     box-sizing: border-box;
+                                                                     border-radius: 15px; " >Recommendation Box</MudButton>
+                <MudButton IconClass="@Icons.Filled.RecordVoiceOver" IconColor="Color.Primary" Variant=Variant.Filled Color="Color.Tertiary" OnClick="TTS">Speak</MudButton>
                 <div class="Box">
-                  <div class="BoxText">
-                    <p class="RecommendationText" spellcheck="false"> Past few days the temperature is above average, hence not suitable for better yeild. According to&nbsp;our  precipitation rate is 10mm/hr.&nbsp;The Water required in the feild would be 20L per 6 Hrs</p>
-                  </div>
+                    <div class="BoxText" style="border: 1.5px solid #C4C4C4;
+                                                box-sizing: border-box;
+                                                border-radius: 15px; padding:1%">
+                        <p class="RecommendationText"> Past few days the temperature is above average, hence not suitable for better yeild. According to&nbsp;our  precipitation rate is 10mm/hr.&nbsp;The Water required in the feild would be 20L per 6 Hrs</p>
+                    </div>
                 </div>
             </div>
 
             <div class="IrrigationDiv">
-               <MudButton Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Irrigation Pump Switches</MudButton>
-               <MudButton Variant="Variant.Outlined"  Style="width:200px; height:116px; border: 6px solid #3AB307; border-radius: 15px" >Start</MudButton>
-               <MudButton Variant="Variant.Outlined" Style="font-size:8vw; width:200px; height:116px; border: 6px solid #FF0000; border-radius: 15px" >Stop</MudButton>
+                <MudButton Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Irrigation Pump Switches</MudButton>
+                <div class="a" style="display: flex; justify-content:space-between ">
+                    <div style="align-items: baseline;" >
+                        <MudButton Variant="Variant.Outlined"  Style="font-size:3vw; width:200px; height:116px; border: 6px solid #3AB307; border-radius: 15px" >Start</MudButton>
+                        <h7>Pump Started</h7>
+                    </div>
+                    
+                    <div >
+                        <MudButton Variant="Variant.Outlined"  Style="font-size:3vw; width:200px; height:116px; border: 6px solid red; border-radius: 15px" >Stop</MudButton>
+                        <h7>Pump Stopped</h7>
+                    </div>
+                
+                </div>
+                
             </div>
-          </div>
+        </div>
     </section>
 </div>
 
@@ -81,11 +131,11 @@
     }
 
     // TTS Function
-    async void TTS(string Text)
+    async void TTS()
     {
         var config = SpeechConfig.FromSubscription("a8064aa14212402a8bd27284fb3d99c3", "centralindia");
         using var synthesizer = new SpeechSynthesizer(config);
-        await synthesizer.SpeakTextAsync(Text);
+        await synthesizer.SpeakTextAsync("Past few days the temperature is above average, hence not suitable for better yeild. According to our model, precipitation rate is 10mm per hour.The Water required in the feild would be 20 Liters per 6 Hours");
 
     }
 
@@ -109,9 +159,9 @@
 
     public List<ChartSeries> Series = new List<ChartSeries>()
     {
-        new ChartSeries() { Name = "Temperature", Data = new double[] { 90, 79, 72, 69, 62, 62, 55, 65, 70 } },
+        new ChartSeries() { Name = "Temperature", Data = new double[] { 10, 12, 12,14,19, 22, 25 } },
     };
-    public string[] XAxisLabels = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep" };
+    public string[] XAxisLabels = {"28 Jan", "29 Jan", "30 Jan", "31 Jan", "1 Feb", "2 Feb" ,"3 Feb",};
 
    
 
