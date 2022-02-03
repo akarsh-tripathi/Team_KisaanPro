@@ -75,13 +75,17 @@
                                                                      border: 1px solid #B4B4B4;
                                                                      box-sizing: border-box;
                                                                      border-radius: 15px;" >Humidity</MudButton>
-                <div class="GraphsDiv">
-                    <div style="display:flex; justify-items:inherit. margin:5px">
+                <div class="GraphsDiv" >
+                    <div style="display:flex; justify-items:inherit;margin:10px">
                         <h2 class="DatatoShow">39 C</h2> 
                         <h7 class="Datawarning" style="color: Red; ">  Warning*</h7>
                     </div>
+                    <div Style="height:100%; width:100%, border: 1px solid #000 ;margin:5px">
+                        
+                        <MudChart ChartType="ChartType.Line" ChartSeries="@Series" @bind-SelectedIndex="index" XAxisLabels="@XAxisLabels" style="height:400px" ChartOptions="chartOptions"></MudChart>
+                    </div>
+
                     
-                    <MudChart ChartType="ChartType.Line" ChartSeries="@Series" @bind-SelectedIndex="index" XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="chartOptions"></MudChart>
                 </div>
             
             </div>
@@ -105,13 +109,13 @@
                 <MudButton Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Irrigation Pump Switches</MudButton>
                 <div class="a" style="display: flex; justify-content:space-between ">
                     <div style="align-items: baseline;" >
-                        <MudButton Variant="Variant.Outlined"  Style="font-size:3vw; width:200px; height:116px; border: 6px solid #3AB307; border-radius: 15px" >Start</MudButton>
-                        <h7>Pump Started</h7>
+                        <MudButton Variant="Variant.Outlined" id="pump-start-btn" Style="font-size:3vw; width:200px; height:116px; border: 6px solid #3AB307; border-radius: 15px" OnClick="@(()=>MessagingService("Start"))" >Start</MudButton>
+                        <h7 style="display:@_PumpStartMsg">Pump Started</h7>
                     </div>
                     
                     <div >
-                        <MudButton Variant="Variant.Outlined"  Style="font-size:3vw; width:200px; height:116px; border: 6px solid red; border-radius: 15px" >Stop</MudButton>
-                        <h7>Pump Stopped</h7>
+                        <MudButton Variant="Variant.Outlined" id="pump-stop-btn" Style="font-size:3vw; width:200px; height:116px; border: 6px solid red; border-radius: 15px" OnClick="@(()=>MessagingService("Stop"))" >Stop</MudButton>
+                        <h7 runat="server" id="StopMssg" style="display:@_PumpStopMsg">Pump Stopped</h7>
                     </div>
                 
                 </div>
@@ -122,6 +126,8 @@
 </div>
 
 @code{
+    public string _PumpStartMsg="none";
+    public string _PumpStopMsg="none";
     public string Time ;
     public string TextValue;
     public void LastUpdateTime(){
@@ -140,16 +146,22 @@
     }
 
     // Using Messaging Service
-    static void MessagingService(String Command, String Number)
+    static void MessagingService( string Command )
     {
         string accountSid = "ACdabe31cf385a7f2499e5bb4705c8c9c5";
         string authToken = "e19cbfc5cf6c0cfc5b49f2c819434b3c";
         TwilioClient.Init(accountSid,authToken);
 
+        if(Command != "Stop" ?true : false)
+        {
+            // To show and hide the messages and style the Start Tag
+        }
+
+
         var message = MessageResource.Create(
-           body: Command!="Stop"?"Start":"Stop",
+           body: Command != "Stop" ? "Start" : "Stop",
            from: new Twilio.Types.PhoneNumber("+18063047362"),
-           to: new Twilio.Types.PhoneNumber(Number) );
+           to: new Twilio.Types.PhoneNumber("+919971234477")); // Addition of User Number
         Console.WriteLine(message.Sid);
     }
     // Chart
