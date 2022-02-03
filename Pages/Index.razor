@@ -2,8 +2,8 @@
 @using Microsoft.CognitiveServices.Speech
 @using Twilio
 @using Twilio.Rest.Api.V2010.Account
-
 <PageTitle>Kisaan Pro</PageTitle>
+
 
 <style>
     .MudButton{
@@ -11,11 +11,14 @@
     }
 </style>
 
-<div class="Main" style="height:auto; width:100%; align-items: center;">
+<div class="Main" style="height:auto; width:100%; align-items: center; border: 1px solid #AFAFAF;
+box-sizing: border-box;
+box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.45);
+border-radius: 9px; ">
     <header>
-        <div class="Header" style="display: flex; justify-content: space-between">
-            
-            <h7 class="LastUpdated"> Last Updated : 15 Jan 22 11:49 am</h7>
+        <div class="Header" style="display: flex; justify-content: space-between; padding:10px" >
+            <img src="/Assets/logo.png" height=50px onclick="">
+            <h7 class="LastUpdated"> Last Updated : @Time</h7>
                 
         </div>
     </header>
@@ -91,19 +94,17 @@
                                                                      box-sizing: border-box;
                                                                      border-radius: 15px;" >Humidity</MudButton>
                                                                     
-                <div class="GraphsDiv" >
                 <br> 
                     <div style="display:flex; justify-items:inherit;margin:10px">
                         <h2 class="DatatoShow">39 C</h2> 
                         <h7 class="Datawarning" style="color: Red; ">  Warning*</h7>
                     </div>
                     <div Style="height:100%; width:100%, border: 1px solid #000 ;margin:5px">
-                        
+                        <Charts/>
                         <MudChart ChartType="ChartType.Line" ChartSeries="@Series" @bind-SelectedIndex="index" XAxisLabels="@XAxisLabels" style="height:400px" ChartOptions="chartOptions"></MudChart>
                     </div>
 
                     
-                </div>
             
             </div>
             <br>
@@ -140,7 +141,7 @@
                     
                     <div >
                         <MudButton Variant="Variant.Outlined" id="pump-stop-btn" Style="font-size:3vw; width:200px; height:116px; border: 6px solid red; border-radius: 15px" OnClick="@(()=>MessagingService("Stop"))" >Stop</MudButton>
-                        <h7 runat="server" id="StopMssg" style="display:@_PumpStopMsg">Pump Stopped</h7>
+                        <h7  style="@(_PumpStartMsg!="Stop"?"diplay:none":"diplay:flex" )">Pump Stopped</h7>
                     </div>
                 
                 </div>
@@ -152,13 +153,11 @@
 
 @code{
     public string _PumpStartMsg="none";
-    public string _PumpStopMsg="none";
-    public string Time ;
+    public string Time =DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss");
     public string TextValue;
+
     public void LastUpdateTime(){
         // Reload Features & Functions
-
-        Time = DateTime.Now.ToString("HH:mm:ss tt");
     }
 
     // TTS Function
@@ -171,7 +170,7 @@
     }
 
     // Using Messaging Service
-    static void MessagingService( string Command )
+    void MessagingService( string Command )
     {
         string accountSid = "ACdabe31cf385a7f2499e5bb4705c8c9c5";
         string authToken = "e19cbfc5cf6c0cfc5b49f2c819434b3c";
@@ -179,7 +178,11 @@
 
         if(Command != "Stop" ?true : false)
         {
-            // To show and hide the messages and style the Start Tag
+            _PumpStartMsg = "Start";
+        }
+        else
+        {
+            _PumpStartMsg = "Stop";
         }
 
 

@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Assets\logo.png" />
+    <None Include="wwwroot\Assets\logo.svg" />
+    <None Include="wwwroot\Assets\tts.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AntDesign.Charts" Version="0.2.2" />
     <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.20.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="4.1.0" />
     <PackageReference Include="MudBlazor" Version="6.0.5" />
