@@ -50,7 +50,7 @@ border-radius: 9px; ">
           
                 <MudTextField @bind-Value="TextValue" Label="Enter Device ID to add" style="width:auto; height: 50px;border: 1px solid #AFAFAF;
                                                                                             border-radius: 9px;" Variant="Variant.Filled"></MudTextField>
-                <MudButton Link="" Variant="Variant.Outlined" Style=" color: white; margin-left:20px; width:35%; height: 50px;background: #3AB307;
+                <MudButton Link="" Variant="Variant.Outlined" Style=" color: white; width:35%; height: 50px; margin-top: 5px;margin-left: 15px;background: #3AB307;
                                                                      border-radius: 7.5px;" >Register</MudButton>
             </div>
 
@@ -60,8 +60,8 @@ border-radius: 9px; ">
             <div class="StausCheckDiv">
                 <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border: 1px solid #B4B4B4;
                                                                      box-sizing: border-box;
-                                                                     border-radius: 15px;" >Check Your Device Status</MudButton>
-                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 40%; height: 30px; border: 1px solid #B4B4B4;
+                                                                     border-radius: 15px; margin-right: 20px" >Check Your Device Status</MudButton>
+                <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black;margin-left:10px; width: 40%; height: 30px; border: 1px solid #B4B4B4;
                                                                      box-sizing: border-box;
                                                                      border-radius: 15px;" >Solar Powered Battery<span style="color: #3AB307;font-weight:600; margin-left:50px">80%</span></MudButton>
             </div>
@@ -117,7 +117,7 @@ border-radius: 9px; ">
                 <MudButton IconClass="@Icons.Filled.RecordVoiceOver" IconColor="Color.Primary" Variant=Variant.Filled Color="Color.Tertiary" OnClick="TTS">Speak</MudButton>
             
 
-                <div class="Box">
+                <div class="Box" style="margin-right:500px">
                                 <br>
                     <div class="BoxText" style="border: 1.5px solid #C4C4C4;
                                                 box-sizing: border-box;
@@ -133,7 +133,7 @@ border-radius: 9px; ">
             <div class="IrrigationDiv">
                 <MudButton Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border-radius:15px " >Irrigation Pump Switches</MudButton>
                 <br>
-                <div class="a" style="display: flex; justify-content:space-between ">
+                <div class="a"  style="display: flex; justify-content:space-between ">
                     <div style="align-items: baseline;" >
                         <MudButton Variant="Variant.Outlined" id="pump-start-btn" Style="font-size:3vw; width:200px; height:116px; border: 6px solid #3AB307; border-radius: 15px" OnClick="@(()=>MessagingService("Start"))" >Start</MudButton>
                         <h7 style="display:@_PumpStartMsg">Pump Started</h7>
