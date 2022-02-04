@@ -2,6 +2,7 @@
 @using Microsoft.CognitiveServices.Speech
 @using Twilio
 @using Twilio.Rest.Api.V2010.Account
+
 <PageTitle>Kisaan Pro</PageTitle>
 
 
@@ -60,7 +61,8 @@ border-radius: 9px; ">
             <div class="StausCheckDiv">
                 <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 30%; height: 30px; border: 1px solid #B4B4B4;
                                                                      box-sizing: border-box;
-                                                                     border-radius: 15px;" >Check Your Device Status</MudButton>
+                                                                     border-radius: 15px;" OnClick="@(()=>DeviceStatusbtn=DeviceStatusbtn==true?false:true)"
+                                                                     >Check Your Device Status</MudButton>
                 <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: 40%; height: 30px; border: 1px solid #B4B4B4;
                                                                      box-sizing: border-box;
                                                                      border-radius: 15px;" >Solar Powered Battery<span style="color: #3AB307;font-weight:600; margin-left:50px">80%</span></MudButton>
@@ -68,16 +70,19 @@ border-radius: 9px; ">
 
             <br>
 
-            <hr />
+            @if(DeviceStatusbtn){
+                <div class="StatusShowDiv">
+                    <Popover ContentTemplate="@_content"  Title="Node Status" >
+                        <div style="height: 25px; width: 25px; background-color: #38FF34; border-radius: 50%;display: inline-block; box-shadow: 0px 0px 8px 3px rgba(120, 179, 119, 0.25);"/>
+                        <div>addd</div>
+                    </Popover> 
+                </div>       
+            }
+            <hr width=50% />
 
             <br>
             <br>
-
-            <div class="StatusShowDiv">
-
-            </div>       
-
-
+            
 
             
             <div class="GraphAreaDiv">
@@ -141,7 +146,7 @@ border-radius: 9px; ">
                     
                     <div >
                         <MudButton Variant="Variant.Outlined" id="pump-stop-btn" Style="font-size:3vw; width:200px; height:116px; border: 6px solid red; border-radius: 15px" OnClick="@(()=>MessagingService("Stop"))" >Stop</MudButton>
-                        <h7  style="@(_PumpStartMsg!="Stop"?"diplay:none":"diplay:flex" )">Pump Stopped</h7>
+                        <h7  style="@(_PumpStartMsg=="none"?"diplay:none":"diplay:flex" )">Pump Stopped</h7>
                     </div>
                 
                 </div>
@@ -155,10 +160,20 @@ border-radius: 9px; ">
     public string _PumpStartMsg="none";
     public string Time =DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss");
     public string TextValue;
+    public bool DeviceStatusbtn {get; set;}=false;
 
     public void LastUpdateTime(){
         // Reload Features & Functions
     }
+
+    //Display Data
+
+    RenderFragment _content =
+    @<div>
+        <p>Name- IDH 1001</p>
+        <p>Status- Running</p>
+    </div>;
+
 
     // TTS Function
     async void TTS()
@@ -182,7 +197,7 @@ border-radius: 9px; ">
         }
         else
         {
-            _PumpStartMsg = "Stop";
+            _PumpStartMsg = "none";
         }
 
 
@@ -192,8 +207,9 @@ border-radius: 9px; ">
            to: new Twilio.Types.PhoneNumber("+919971234477")); // Addition of User Number
         Console.WriteLine(message.Sid);
     }
+
     // Chart
-     private int index = -1; //default value cannot be 0 -> first selectedindex is 0.
+    private int index = -1; //default value cannot be 0 -> first selectedindex is 0.
 
     public ChartOptions chartOptions = new ChartOptions();
 
@@ -202,8 +218,5 @@ border-radius: 9px; ">
         new ChartSeries() { Name = "Temperature", Data = new double[] { 10, 12, 12,14,19, 22, 25 } },
     };
     public string[] XAxisLabels = {"28 Jan", "29 Jan", "30 Jan", "31 Jan", "1 Feb", "2 Feb" ,"3 Feb",};
-
    
-
-
 }
