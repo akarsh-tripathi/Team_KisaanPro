@@ -28,8 +28,11 @@ try
     sqlbuilder.Password = "kisaaanpro@123";
     sqlbuilder.InitialCatalog = "Kisaan Pro";
 
+    
+
     using (SqlConnection connection = new SqlConnection(sqlbuilder.ConnectionString))
     {
+        //List<Database> database =
         Console.WriteLine("\nQuery data example:");
         Console.WriteLine("=========================================\n");
 
