@@ -4,6 +4,9 @@ using MudBlazor.Services;
 using Microsoft.Data.Sql;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using Team_KisaanPro.ModelClass;
+using Microsoft.Extensions.Configuration;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +15,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddMudServices();
 var app = builder.Build();
+
+Global.ConnectionString = builder.Configuration.GetConnectionString("AzureSQL");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

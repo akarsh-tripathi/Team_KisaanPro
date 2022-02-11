@@ -1,1 +1,38 @@
-﻿
+﻿@using Team_KisaanPro.IServices
+@using Team_KisaanPro.ModelClass
+@inject IDataService DataService;
+<h1>Check Environ</h1>
+
+<table>
+    <thead>
+        <tr>
+        <td>ID</td>
+        <td>DateTime</td>
+        <td>Temperature</td>
+        <td>pHLevel</td>
+        <td>Humidity</td>
+        <td>Device Status</td>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach(var data in databases)
+        {
+            <tr>
+                <td>DeviceID</td>
+                <td>DateTime</td>
+                <td>Temperature</td>
+                <td>pHLevel</td>
+                <td>Humidity</td>
+                <td>Device Status</td>
+            </tr>
+        }
+    </tbody>
+    
+
+</table>
+
+@code{
+    private List<Database> databases;
+
+    //protected override void OnInitialized() => databases = DataService.GetSystemDatabase();
+}

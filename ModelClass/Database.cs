@@ -9,5 +9,7 @@
         public string phLevel { get; set; }
         public string Humidity { get; set; }
         public string DeviceStatus { get; set;}
+
+       
     }
 }

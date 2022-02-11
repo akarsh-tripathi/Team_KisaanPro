@@ -1,18 +1,64 @@
 @{
-    for (int i = 1; i <= 2; i++)
+    for (int i = 1; i <= 3; i++)
 
                 {
                     <ul style="list-style:none">
                         
                         @for(int j=1;j<5;j++){
-                            <li style="display:inline;">                            
-                                <div style="height: 25px; width: 25px; background-color: #38FF34; 
-                                border-radius: 50%;display: inline-block; box-shadow: 0px 0px 8px 3px rgba(120, 179, 119, 0.25); "/>
-                                <div>ID- ASH 1001</div>
-                                <div style="font-size:2vw; color:grey;">----------------</div>
+
+                <li style="display:inline-block; ">
+
+                    <div id='div0'>
+                    @if(j%4!=0)
+                    {
+                    <svg width="185" height="60" ><line x1="200" y1="10" x2="40" y2="10" stroke="silver" stroke-width="1" font-size="10vw"/></svg>   
+                            
+                    }
+                    </div><br>                                
+                    <div id='div1'>ID- ASH 100 </div>
+                    @if(i%3!=0){
+                           <svg width="200" height="110v"><line x1="90" y1="1" x2="88" y2="100" stroke="silver" stroke-width="1"/></svg>
+                        
+                    }
+
+
+                                <style type="text/css">
+                                    #div1 {
+                                      margin-bottom:5px;
+                                      margin-left:50px;
+                                      margin-right:50px;
+                                      font-size:15px;
+                                      font-style:italic;
+                                      font-weight:600;
+                                      color:grey;
+
+                                    }
+
+                                    #div0 {
+
+                                     
+                                      margin-left:75px;
+                                      margin-right:75px;
+                                      height: 2vw; 
+                                      width: 2vw;
+                                      background-color: #38FF34; 
+                                      border-radius: 50%;
+                                      display: inline-block;
+                                      box-shadow: 0px 0px 8px 3px rgba(120, 179, 119, 0.25);
+                                      
+                                      
+                                    }
+
+                                
+                                </style>
                             </li>
                         }
+
+
                     </ul>
                 }
-                <br>
+
+
+    
+                
 }
