@@ -7,8 +7,12 @@ using System.Data;
 using Team_KisaanPro.ModelClass;
 using Microsoft.Extensions.Configuration;
 using System.Configuration;
+using Team_KisaanPro.IServices;
+using Team_KisaanPro.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSingleton<IDataService,DataService>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -25,41 +29,41 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-try
-{
-    SqlConnectionStringBuilder sqlbuilder = new SqlConnectionStringBuilder();
-    sqlbuilder.DataSource = "kisaanproserver.database.windows.net";
-    sqlbuilder.UserID = "kisaanpro";
-    sqlbuilder.Password = "kisaaanpro@123";
-    sqlbuilder.InitialCatalog = "Kisaan Pro";
+// try
+// {
+//     SqlConnectionStringBuilder sqlbuilder = new SqlConnectionStringBuilder();
+//     sqlbuilder.DataSource = "kisaanproserver.database.windows.net";
+//     sqlbuilder.UserID = "kisaanpro";
+//     sqlbuilder.Password = "kisaaanpro@123";
+//     sqlbuilder.InitialCatalog = "Kisaan Pro";
 
     
 
-    using (SqlConnection connection = new SqlConnection(sqlbuilder.ConnectionString))
-    {
-        //List<Database> database =
-        Console.WriteLine("\nQuery data example:");
-        Console.WriteLine("=========================================\n");
+//     using (SqlConnection connection = new SqlConnection(sqlbuilder.ConnectionString))
+//     {
+//         //List<Database> database =
+//         Console.WriteLine("\nQuery data example:");
+//         Console.WriteLine("=========================================\n");
 
-        String sql = "SELECT * FROM [dbo].[Database]";
+//         String sql = "SELECT * FROM [dbo].[Database]";
 
-        using (SqlCommand command = new SqlCommand(sql, connection))
-        {
-            connection.Open();
-            using (SqlDataReader reader = command.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    Console.WriteLine("{0} {1}", reader.GetInt32(0).ToString(), reader.GetString(1));
-                }
-            }
-        }
-    }
-}
-catch(SqlException e)
-{
-    Console.WriteLine(e.ToString());
-}
+//         using (SqlCommand command = new SqlCommand(sql, connection))
+//         {
+//             connection.Open();
+//             using (SqlDataReader reader = command.ExecuteReader())
+//             {
+//                 while (reader.Read())
+//                 {
+//                     Console.WriteLine("{0} {1}", reader.GetInt32(0).ToString(), reader.GetString(1));
+//                 }
+//             }
+//         }
+//     }
+// }
+// catch(SqlException e)
+// {
+//     Console.WriteLine(e.ToString());
+// }
 
 app.UseHttpsRedirection();
 

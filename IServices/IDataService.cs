@@ -4,9 +4,10 @@ namespace Team_KisaanPro.IServices
 {
     public interface IDataService
     {
-        Database GetSystemDatabase(); 
+        List<SytemDatabase> GetSystemDatabase(); 
 
-        UserDatabase GetUserDatabase();
-        UserDatabase SaveToUserDatabase(UserDatabase ouserDatabase);
+        List<UserDatabase> GetUserDatabase();
+
+
     }
 }

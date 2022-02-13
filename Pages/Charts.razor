@@ -1,9 +1,9 @@
-﻿@using Team_KisaanPro.IServices
+﻿@*@using Team_KisaanPro.IServices
 @using Team_KisaanPro.ModelClass
 @inject IDataService DataService;
 <h1>Check Environ</h1>
 
-<table>
+<table class="table">
     <thead>
         <tr>
         <td>ID</td>
@@ -18,12 +18,12 @@
         @foreach(var data in databases)
         {
             <tr>
-                <td>DeviceID</td>
-                <td>DateTime</td>
-                <td>Temperature</td>
-                <td>pHLevel</td>
-                <td>Humidity</td>
-                <td>Device Status</td>
+                <td>@data.DeviceId</td>
+                <td>@data.DateTime</td>
+                <td>@data.Temperature</td>
+                <td>@data.phLevel</td>
+                <td>@data.Humidity</td>
+                <td>@data.DeviceStatus</td>
             </tr>
         }
     </tbody>
@@ -32,7 +32,7 @@
 </table>
 
 @code{
-    private List<Database> databases;
+    private List<SytemDatabase> databases;
 
-    //protected override void OnInitialized() => databases = DataService.GetSystemDatabase();
-}
+    protected override void OnInitialized() => databases = DataService.GetSystemDatabase();
+}*@

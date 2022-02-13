@@ -8,54 +8,49 @@ namespace Team_KisaanPro.Services
 {
     public class DataService : IDataService
     {
-        Database _oDatabase= new Database();
-        UserDatabase _oUserDatabase= new UserDatabase();
+        List<SytemDatabase> _oDatabase;
+        List<UserDatabase> _oUserDatabase;
 
-        public Database GetSystemDatabase()
+        public List<SytemDatabase>? GetSystemDatabase()
         {
-            _oDatabase=new Database();
             using (IDbConnection con = new SqlConnection(Global.ConnectionString) )
             {
                 if(con.State != ConnectionState.Open) con.Open();
 
                 // Extracting All the List of Database in System Configuration
-                var oDatabases = con.Query<Database>("").ToList();
+                _oDatabase = con.Query<SytemDatabase>("SELECT * FROM [dbo].[SytemDatabase]").ToList();
 
                 // Condition to Check if the Databse is empty or not
 
-                if(oDatabases!=null && oDatabases.Count > 0)
+                if(_oDatabase!=null && _oDatabase.Count > 0)
                 {
-                    _oDatabase = oDatabases.FirstOrDefault();
+                    return _oDatabase;
                 }
 
             }
-            return _oDatabase;
+            return null;
         }
 
-        public UserDatabase GetUserDatabase()
+        public List<UserDatabase>? GetUserDatabase()
         {
-            _oUserDatabase = new UserDatabase();
+
             using (IDbConnection con = new SqlConnection(Global.ConnectionString))
             {
                 if (con.State != ConnectionState.Open) con.Open();
 
                 // Extracting All the List of Database in User Database
-                var oUserDatabases = con.Query<UserDatabase>("").ToList();
+                _oUserDatabase = con.Query<UserDatabase>("SELECT * FROM [dbo].[UserDatabase]").ToList();
 
                 // Condition to Check if the Databse is empty or not
 
-                if (oUserDatabases != null && oUserDatabases.Count > 0)
+                if (_oUserDatabase != null && _oUserDatabase.Count > 0)
                 {
-                    _oUserDatabase = oUserDatabases.FirstOrDefault();
+                    return _oUserDatabase;        
                 }
 
             }
-            return _oUserDatabase;
+            return null;
         }
 
-        public UserDatabase SaveToUserDatabase(UserDatabase ouserDatabase)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

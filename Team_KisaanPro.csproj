@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Modals\AddCropModal.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Modals\AddCropModal.razor" />
     <None Include="wwwroot\Assets\logo.png" />
     <None Include="wwwroot\Assets\logo.svg" />
     <None Include="wwwroot\Assets\tts.svg" />
@@ -22,6 +27,14 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
     <PackageReference Include="Twilio" Version="5.70.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Modals\AddCropModal.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Modals\AddCropModal.razor" />
   </ItemGroup>
 
 </Project>
