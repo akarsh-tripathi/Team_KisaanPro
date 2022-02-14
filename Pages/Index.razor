@@ -10,11 +10,11 @@
 
 
 @{
-    string clicked_Style="background-color: #EE6002; color: white; min-width: 30% max-width:150%; height: 30px; border: 1px solid #0075FF;box-sizing: border-box;border-radius: 15px;";
-    string non_Clicked_Style="background-color: white; color: black; min-width: 30% max-width:150%; height: 30px; border: 1px solid #EE6002;box-sizing: border-box;border-radius: 15px;";
+    string clicked_Style="background-color: #EE6002; color: white; max-width:30%;   height: 30px; border: 1px solid #0075FF;box-sizing: border-box;border-radius: 15px;";
+    string non_Clicked_Style="background-color: white; color: black;max-width:150%;   height: 30px; border: 1px solid #EE6002;box-sizing: border-box;border-radius: 15px;";
 }
 
-<div class="Main" style="height:auto; width:100%; align-items: center;" >
+<div class="Main" style="height:auto; width:100%; align-items: center; justify-content:center; display:flex; flex-direction:column; overflow-x: hidden;" >
     <header>
         <div class="Header" style="display: flex; justify-content: space-between; padding:10px" >
             <img src="/Assets/logo.png" height=50px onclick="">
@@ -24,29 +24,27 @@
     </header>
     <section class="SectionStart" >
         <div class="MainDashboard">
-            <div class="AllNotificationsDiv" style="display: flex; justify-content:space-between;">
+            <div class="AllNotificationsDiv" style="display: flex; justify-content: space-between; margin-right: 15px; margin-left: 15px;">
                 
                 
                 <div class="SystemStatusDiv">
-                    <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: auto ; height: 40px; border: 1px solid #B4B4B4;
-                                                                         box-sizing: border-box;
-                                                                         border-radius: 15px;" >System Status
+                    <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: auto ; height: 40px; border: 1px solid #B4B4B4;box-sizing: border-box;border-radius: 15px; font-size:2.5vw">System Status
                                                                         </MudButton>
                 </div>           
                 <div class="NotificationDiv">
                     <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: auto; height: 40px; border: 1px solid #B4B4B4;
                                                                          box-sizing: border-box;
-                                                                         border-radius: 15px; " >Notifications</MudButton>
+                                                                         border-radius: 15px;  font-size:2.5vw" >Notifications</MudButton>
                 </div>            
                 <div class="ServerStatusDiv">
                     <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: auto; height: 40px; border: 1px solid #B4B4B4;
                                                                          box-sizing: border-box;
-                                                                         border-radius: 15px;" >Server Status</MudButton>
+                                                                         border-radius: 15px; font-size:2.5vw " >Server Status</MudButton>
                     <div class="u-custom-color-2 u-shape u-shape-circle u-shape-2"></div>
                 </div>
             </div>
 
-            <div class="RegisterDeviceDiv" style="display: flex; justify-content:space-between ; align:align-center">
+            <div class="RegisterDeviceDiv" style="display: flex; justify-content:space-between ; align:align-center; margin-right:15px; margin-left:15px">
           
                 <MudTextField @bind-Value="TextValue" Label="Enter Device ID to add" style="width:auto; height: 50px;border: 1px solid #AFAFAF;
                                                                                             border-radius: 9px;" Variant="Variant.Filled"></MudTextField>
@@ -57,7 +55,7 @@
             <br>
             <br>
 
-            <div class="StausCheckDiv">
+            <div class="StausCheckDiv" style="margin-right: 15px; margin-left:15px">
                 @*<MudButton Link="" Variant="Variant.Outlined" Style=@(DeviceStatusbtn==true?clicked_Style:non_Clicked_Style) OnClick="(()=>DeviceStatusbtn=DeviceStatusbtn==true?false:true)"
                                                                      >Check Your Device Status</MudButton>*@
                 <MudButton Link="" Variant="Variant.Outlined" Style=@(SolarStatusbtn==true?clicked_Style:non_Clicked_Style) >Solar Powered Battery<span style="color: #3AB307;font-weight:600; margin-left:50px">80%</span></MudButton>
@@ -73,7 +71,7 @@
             
 
             
-            <div class="GraphAreaDiv">
+            <div class="GraphAreaDiv" style="margin-right:15px; margin-left:15px;">
                 <MudButton Link="" Variant="Variant.Outlined" Style=@(TempStatusbtn==true?clicked_Style:non_Clicked_Style) OnClick="(()=>TempStatusbtn=TempStatusbtn==true?false:true)">Temperature</MudButton>
                 <MudButton Link="" Variant="Variant.Outlined" Style=@(pHStatusbtn==true?clicked_Style:non_Clicked_Style) OnClick="(()=>pHStatusbtn=pHStatusbtn==true?false:true)">pH level</MudButton>
                 <MudButton Link="" Variant="Variant.Outlined" Style=@(HumidityStatusbtn==true?clicked_Style:non_Clicked_Style) OnClick="(()=>HumidityStatusbtn=HumidityStatusbtn==true?false:true)">Humidity</MudButton>

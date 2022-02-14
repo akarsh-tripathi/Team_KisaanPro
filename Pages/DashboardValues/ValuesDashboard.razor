@@ -2,12 +2,14 @@
 <style>
     .bg{
         position: center;
-        width: 598px;
+        width: 100%;
         height: 413px;
-        left: 598px;
-        top: 598px;
+        @* left: 598px; *@
+        @* top: 598px; *@
 
-        display: grid;
+        display: flex;
+        align-items:center;
+        flex-direction: column;
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: repeat(5, 1fr);
         grid-column-gap: 0px;
