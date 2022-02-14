@@ -10,14 +10,11 @@
 
 
 @{
-    string clicked_Style="background-color: #0075FF; color: white; min-width: auto max-width:150%; height: 30px; border: 1px solid #0075FF;box-sizing: border-box;border-radius: 15px;";
-    string non_Clicked_Style="background-color: white; color: black; min-width: auto max-width:150%; height: 30px; border: 1px solid #B4B4B4;box-sizing: border-box;border-radius: 15px;";
+    string clicked_Style="background-color: #EE6002; color: white; min-width: 30% max-width:150%; height: 30px; border: 1px solid #0075FF;box-sizing: border-box;border-radius: 15px;";
+    string non_Clicked_Style="background-color: white; color: black; min-width: 30% max-width:150%; height: 30px; border: 1px solid #EE6002;box-sizing: border-box;border-radius: 15px;";
 }
 
-<div class="Main" style="height:auto; width:100%; align-items: center; border: 1px solid #AFAFAF;
-box-sizing: border-box;
-box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.45);
-border-radius: 9px; background-color:#F5F5F5 ">
+<div class="Main" style="height:auto; width:100%; align-items: center;" >
     <header>
         <div class="Header" style="display: flex; justify-content: space-between; padding:10px" >
             <img src="/Assets/logo.png" height=50px onclick="">
@@ -61,8 +58,8 @@ border-radius: 9px; background-color:#F5F5F5 ">
             <br>
 
             <div class="StausCheckDiv">
-                <MudButton Link="" Variant="Variant.Outlined" Style=@(DeviceStatusbtn==true?clicked_Style:non_Clicked_Style) OnClick="(()=>DeviceStatusbtn=DeviceStatusbtn==true?false:true)"
-                                                                     >Check Your Device Status</MudButton>
+                @*<MudButton Link="" Variant="Variant.Outlined" Style=@(DeviceStatusbtn==true?clicked_Style:non_Clicked_Style) OnClick="(()=>DeviceStatusbtn=DeviceStatusbtn==true?false:true)"
+                                                                     >Check Your Device Status</MudButton>*@
                 <MudButton Link="" Variant="Variant.Outlined" Style=@(SolarStatusbtn==true?clicked_Style:non_Clicked_Style) >Solar Powered Battery<span style="color: #3AB307;font-weight:600; margin-left:50px">80%</span></MudButton>
             </div>
 
@@ -77,23 +74,11 @@ border-radius: 9px; background-color:#F5F5F5 ">
 
             
             <div class="GraphAreaDiv">
-                <MudButton Link="" Variant="Variant.Outlined" Style="color: white; width: 20%; height: 30px; background: #EE6002;margin-right: 20px;
-                                                                     border: 1px solid #EE6002;
-                                                                     box-sizing: border-box;
-                                                                     border-radius: 15px; " OnClick="(()=>TempStatusbtn=TempStatusbtn==true?false:true)">Temperature</MudButton>
-                <MudButton Link="" Variant="Variant.Outlined" Style="color: #5A5959; width: 20%; height: 30px; background: white;margin-right: 20px;
-                                                                     border: 1px solid #EE6002;
-                                                                     box-sizing: border-box;
-                                                                     border-radius: 15px;" OnClick="(()=>pHStatusbtn=pHStatusbtn==true?false:true)">pH level</MudButton>
-                <MudButton Link="" Variant="Variant.Outlined" Style="color: #5A5959; width: 20%; height: 30px; background: white;margin-right: 20px;
-                                                                     border: 1px solid #EE6002;
-                                                                     box-sizing: border-box;
-                                                                     border-radius: 15px;" OnClick="(()=>HumidityStatusbtn=HumidityStatusbtn==true?false:true)">Humidity</MudButton>
+                <MudButton Link="" Variant="Variant.Outlined" Style=@(TempStatusbtn==true?clicked_Style:non_Clicked_Style) OnClick="(()=>TempStatusbtn=TempStatusbtn==true?false:true)">Temperature</MudButton>
+                <MudButton Link="" Variant="Variant.Outlined" Style=@(pHStatusbtn==true?clicked_Style:non_Clicked_Style) OnClick="(()=>pHStatusbtn=pHStatusbtn==true?false:true)">pH level</MudButton>
+                <MudButton Link="" Variant="Variant.Outlined" Style=@(HumidityStatusbtn==true?clicked_Style:non_Clicked_Style) OnClick="(()=>HumidityStatusbtn=HumidityStatusbtn==true?false:true)">Humidity</MudButton>
 
-                <MudButton Link="" Variant="Variant.Outlined" Style="color: #5A5959; width: 20%; height: 30px; background: white;margin-right: 20px;
-                                                                     border: 1px solid #EE6002;
-                                                                     box-sizing: border-box;
-                                                                     border-radius: 15px;" OnClick="(()=>DeviceStatusbtn=DeviceStatusbtn==true?false:true)" >Check your Status</MudButton>                                                     
+                <MudButton Link="" Variant="Variant.Outlined" Style=@(DeviceStatusbtn==true?clicked_Style:non_Clicked_Style) OnClick="(()=>DeviceStatusbtn=DeviceStatusbtn==true?false:true)" >Check your Status</MudButton>                                                     
                                                                     
                 <br> 
                    
@@ -136,6 +121,7 @@ border-radius: 9px; background-color:#F5F5F5 ">
                     HumidityStatusbtn=false;
                     pHStatusbtn = false;
 
+                    <PhDashboard/>
 
                         @*<Charts/>
                             <MudChart ChartType="ChartType.Line" ChartSeries="@Series" @bind-SelectedIndex="index" XAxisLabels="@XAxisLabels" style="height:400px" ChartOptions="chartOptions"></MudChart>*@
@@ -153,7 +139,9 @@ border-radius: 9px; background-color:#F5F5F5 ">
                                                                      border-radius: 15px; " >Recommendation Box</MudButton>
                 <MudButton IconClass="@Icons.Filled.RecordVoiceOver" IconColor="MudBlazor.Color.Primary" Variant=Variant.Filled Color="MudBlazor.Color.Tertiary" OnClick="TTS">Speak</MudButton>
             
-
+                <div style="color:red; align-content:start">
+                     Not Suitable for better yield
+                </div>
                 <div class="Box" >
                                 <br>
                     <div class="BoxText" style="border: 1.5px solid #C4C4C4;
@@ -199,7 +187,7 @@ border-radius: 9px; background-color:#F5F5F5 ">
     public string Time =DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss");
     public string TextValue ="";
     public bool DeviceStatusbtn {get; set;}=false;
-    public bool TempStatusbtn {get; set;}=false;
+    public bool TempStatusbtn {get; set;}=true;
     public bool HumidityStatusbtn {get; set;}=false;
     public bool pHStatusbtn {get; set;}=false;
     public bool SolarStatusbtn {get; set;}=false;
