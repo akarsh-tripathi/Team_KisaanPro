@@ -8,10 +8,12 @@
 
   <ItemGroup>
     <Content Remove="Pages\Modals\AddCropModal.razor" />
+    <Content Remove="Pages\Modals\Modal.razor" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="Pages\Modals\AddCropModal.razor" />
+    <None Include="Pages\Modals\Modal.razor" />
     <None Include="wwwroot\Assets\logo.png" />
     <None Include="wwwroot\Assets\logo.svg" />
     <None Include="wwwroot\Assets\tts.svg" />
@@ -35,10 +37,15 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\Modals\AddCropModal.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Modals\Modal.razor" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Modals\Modal.razor" />
   </ItemGroup>
 
 </Project>

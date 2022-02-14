@@ -5,6 +5,7 @@
 @using Twilio
 @using Twilio.Rest.Api.V2010.Account
 @inject IDataService DataService;
+@inject IDialogService Dialog
 
 <PageTitle>Kisaan Pro</PageTitle>
 
@@ -19,8 +20,10 @@
         <div class="Header" style="display: flex; justify-content: space-between; padding:10px" >
             <img src="/Assets/logo.png" height=50px onclick="">
             <h7 class="LastUpdated"> Last Updated : @Time</h7>
-                
+         <MudButton OnClick="@((e) => OpenDialog(topCenter))" Color="MudBlazor.Color.Success">Top Center Dialog</MudButton>
+      
         </div>
+        
     </header>
     <section class="SectionStart" >
         <div class="MainDashboard">
@@ -136,8 +139,8 @@
                 <MudButton Link="" Variant="Variant.Outlined" Style="background: #0075FF; width:35%; height:30%; color: White;
                                                                      border: 1px solid #B4B4B4;
                                                                      box-sizing: border-box;
-                                                                     border-radius: 15px; " >Recommendation Box</MudButton>
-                <MudButton IconClass="@Icons.Filled.RecordVoiceOver" IconColor="MudBlazor.Color.Primary" Variant=Variant.Filled Color="MudBlazor.Color.Tertiary" OnClick="TTS">Speak</MudButton>
+                                                                     border-radius: 15px; " OnClick="ChangeRec" >Recommendation Box</MudButton>
+                <MudButton IconClass="@Icons.Filled.RecordVoiceOver" IconColor="MudBlazor.Color.Primary" Variant=Variant.Filled Color="MudBlazor.Color.Tertiary" OnClick="(()=>TTS(RecValue))">Speak</MudButton>
             
                 <div style="color:red; align-content:start">
                      Not Suitable for better yield
@@ -147,7 +150,7 @@
                     <div class="BoxText" style="border: 1.5px solid #C4C4C4;
                                                 box-sizing: border-box;
                                                 border-radius: 15px; padding:2%">
-                        <p class="RecommendationText"> Past few days the temperature is above average, hence not suitable for better yeild. According to&nbsp;our  precipitation rate is 10mm/hr.&nbsp;The Water required in the feild would be 20L per 6 Hrs</p>
+                        <p class="RecommendationText">@RecValue</p>
                     </div>
                 </div>
                 
@@ -191,10 +194,27 @@
     public bool HumidityStatusbtn {get; set;}=false;
     public bool pHStatusbtn {get; set;}=false;
     public bool SolarStatusbtn {get; set;}=false;
+
+    public String Rec1= "Past few days the temperature is above average, hence not suitable for better yeild. According to our model, precipitation rate is 10mm per hour.The Water required in the feild would be 20 Liters per 6 Hours";
+    public String Rec2= "Past few days the temperature is above average, hence requires more water to have a better yeild and precipitation expected is quite good and less water is wasted ";
+    public String RecValue = "Past few days the temperature is above average, hence not suitable for better yeild. According to our model, precipitation rate is 10mm per hour.The Water required in the feild would be 20 Liters per 6 Hours";
     public void LastUpdateTime(){
         // Reload Features & Functions
     }
-     
+
+    //Change Recommendation Values
+
+    private void ChangeRec()
+    {
+        if (String.Compare(RecValue, Rec1)==0)
+        {
+            RecValue = Rec2; 
+        }
+        else{
+            RecValue = Rec1;
+        }
+    }
+
     //Display Data
 
     RenderFragment _content =
@@ -206,11 +226,11 @@
 
 
     // TTS Function
-    async void TTS()
+    async void TTS(string Rec)
     {
         var config = SpeechConfig.FromSubscription("a8064aa14212402a8bd27284fb3d99c3", "centralindia");
         using var synthesizer = new SpeechSynthesizer(config);
-        await synthesizer.SpeakTextAsync("Past few days the temperature is above average, hence not suitable for better yeild. According to our model, precipitation rate is 10mm per hour.The Water required in the feild would be 20 Liters per 6 Hours");
+        await synthesizer.SpeakTextAsync(Rec);
 
     }
 
@@ -262,12 +282,13 @@
         }
         else
         {
-           Console.WriteLine("No Text Entered"); 
+            Console.WriteLine("No Text Entered"); 
         }
-        
+       
 
     }
-    
+    MudBlazor.DialogOptions topCenter = new MudBlazor.DialogOptions() { Position = DialogPosition.TopCenter };
+    public void OpenDialog(MudBlazor.DialogOptions options) => Dialog.Show<Dialog>("Custom Options Dialog", options);
 
 
 }
