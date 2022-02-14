@@ -16,14 +16,10 @@
 }
 
 <div class="Main" style="height:auto; width:100%; align-items: center; justify-content:center; display:flex; flex-direction:column; overflow-x: hidden;" >
-    <header>
-        <div class="Header" style="display: flex; justify-content: space-between; padding:10px" >
+    <header style="display: flex; justify-content: space-between; padding:10px; align-items: center;">
             <img src="/Assets/logo.png" height=50px onclick="">
             <h7 class="LastUpdated"> Last Updated : @Time</h7>
          <MudButton OnClick="@((e) => OpenDialog(topCenter))" Color="MudBlazor.Color.Success">Top Center Dialog</MudButton>
-      
-        </div>
-        
     </header>
     <section class="SectionStart" >
         <div class="MainDashboard">
@@ -31,18 +27,18 @@
                 
                 
                 <div class="SystemStatusDiv">
-                    <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: auto ; height: 40px; border: 1px solid #B4B4B4;box-sizing: border-box;border-radius: 15px; font-size:2.5vw">System Status
+                    <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: auto ; height: 40px; border: 1px solid #B4B4B4;box-sizing: border-box;border-radius: 15px; font-size:2.5vmin">System Status
                                                                         </MudButton>
                 </div>           
                 <div class="NotificationDiv">
                     <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: auto; height: 40px; border: 1px solid #B4B4B4;
                                                                          box-sizing: border-box;
-                                                                         border-radius: 15px;  font-size:2.5vw" >Notifications</MudButton>
+                                                                         border-radius: 15px;  font-size:2.5vmin" >Notifications</MudButton>
                 </div>            
                 <div class="ServerStatusDiv">
                     <MudButton Link="" Variant="Variant.Outlined" Style="background-color: white; color: black; width: auto; height: 40px; border: 1px solid #B4B4B4;
                                                                          box-sizing: border-box;
-                                                                         border-radius: 15px; font-size:2.5vw " >Server Status</MudButton>
+                                                                         border-radius: 15px; font-size:2.5vmin " >Server Status</MudButton>
                     <div class="u-custom-color-2 u-shape u-shape-circle u-shape-2"></div>
                 </div>
             </div>
@@ -74,12 +70,14 @@
             
 
             
-            <div class="GraphAreaDiv" style="margin-right:15px; margin-left:15px;">
+            <div class="GraphAreaDiv" style="margin-right:15px; margin-left:15px; ">
+                @* <div style="overflow-x:auto; overflow-y:hidden; white-space:nowrap;"> *@
                 <MudButton Link="" Variant="Variant.Outlined" Style=@(TempStatusbtn==true?clicked_Style:non_Clicked_Style) OnClick="(()=>TempStatusbtn=TempStatusbtn==true?false:true)">Temperature</MudButton>
                 <MudButton Link="" Variant="Variant.Outlined" Style=@(pHStatusbtn==true?clicked_Style:non_Clicked_Style) OnClick="(()=>pHStatusbtn=pHStatusbtn==true?false:true)">pH level</MudButton>
                 <MudButton Link="" Variant="Variant.Outlined" Style=@(HumidityStatusbtn==true?clicked_Style:non_Clicked_Style) OnClick="(()=>HumidityStatusbtn=HumidityStatusbtn==true?false:true)">Humidity</MudButton>
 
-                <MudButton Link="" Variant="Variant.Outlined" Style=@(DeviceStatusbtn==true?clicked_Style:non_Clicked_Style) OnClick="(()=>DeviceStatusbtn=DeviceStatusbtn==true?false:true)" >Check your Status</MudButton>                                                     
+                <MudButton Link="" Variant="Variant.Outlined" Style=@(DeviceStatusbtn==true?clicked_Style:non_Clicked_Style) OnClick="(()=>DeviceStatusbtn=DeviceStatusbtn==true?false:true)" >Check your Status</MudButton> 
+                @* </div>                                                     *@
                                                                     
                 <br> 
                    
@@ -133,14 +131,16 @@
             </div>
             <br>
 
-            <div class="RecommendationBoxDiv">
+            <div class="RecommendationBoxDiv" >
+                <div style="display: flex; align-items: center; justify-content: space-evenly;">
                 <MudButton Link="" Variant="Variant.Outlined" Style="background: #0075FF; width:35%; height:30%; color: White;
                                                                      border: 1px solid #B4B4B4;
                                                                      box-sizing: border-box;
                                                                      border-radius: 15px; " OnClick="ChangeRec" >Recommendation Box</MudButton>
                 <MudButton IconClass="@Icons.Filled.RecordVoiceOver" IconColor="MudBlazor.Color.Primary" Variant=Variant.Filled Color="MudBlazor.Color.Tertiary" OnClick="(()=>TTS(RecValue))">Speak</MudButton>
             
-                <div style="color:red; align-content:start">
+                </div>
+                <div style="color:red; align-content:start; margin-left: 15px;">
                      Not Suitable for better yield
                 </div>
                 <div class="Box" >
@@ -163,18 +163,19 @@
 
                </div>
                 <br>
-                <div class="a"  style="display: flex; justify-content:space-between ">
-                    <div style="align-items: baseline;" >
-                        <MudButton Variant="Variant.Outlined" id="pump-start-btn" Style="font-size:3vw; width:200px; height:116px; border: 6px solid #0E6938; border-radius: 15px" OnClick="@(()=>MessagingService("Start"))" >Start</MudButton>
+                <div class="a"  style="display: flex;  justify-content:space-evenly; align-items: center; ">
+                    @* <div style="width:50%; align-items: center;" > *@
+                        <MudButton Variant="Variant.Outlined" id="pump-start-btn" Style="font-size:3vmin; width:40%; height:116px; border: 6px solid #0E6938; border-radius: 15px" OnClick="@(()=>MessagingService("Start"))" >Start</MudButton>
                         <h7 style="display:@_PumpStartMsg">Pump Started</h7>
-                    </div>
+                    @* </div> *@
                     
-                    <div >
-                        <MudButton Variant="Variant.Outlined" id="pump-stop-btn" Style="font-size:3vw; width:200px; height:116px; border: 6px solid #B00020; border-radius: 15px" OnClick="@(()=>MessagingService("Stop"))" >Stop</MudButton>
-                        <h7  style="@(_PumpStartMsg=="none"?"diplay:none":"diplay:flex" )">Pump Stopped</h7>
-                    </div>
+                    @* <div style=" width:50%; justify" > *@
+                        <MudButton Variant="Variant.Outlined" id="pump-stop-btn" Style="font-size:3vmin; width:40%; height:116px; border: 6px solid #B00020; border-radius: 15px" OnClick="@(()=>MessagingService("Stop"))" >Stop</MudButton>
+                        
+                    @* </div> *@
                 
                 </div>
+                <h7  style="@(_PumpStartMsg=="none"?"diplay:none":"diplay:flex" )">Pump Stopped</h7>
                 
             </div>
 
