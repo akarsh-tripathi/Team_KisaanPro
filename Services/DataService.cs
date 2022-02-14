@@ -10,6 +10,41 @@ namespace Team_KisaanPro.Services
     {
         List<SytemDatabase> _oDatabase;
         List<UserDatabase> _oUserDatabase;
+        List<DeviceDatabase> _oDeviceDatabase;
+
+        public void AddDeviceToDatabase(string DeviceId, string Status)
+        {
+            using (IDbConnection con = new SqlConnection(Global.ConnectionString))
+            {
+                if (con.State != ConnectionState.Open) con.Open();
+                string Command = $"INSERT INTO [dbo].[DeviceDatabase] (DeviceId, Status) VALUES('{DeviceId}','{Status}' ); ";
+                // Extracting All the List of Database in System Configuration
+                con.Query<DeviceDatabase>(Command);
+                Console.WriteLine("Values Inserted");
+
+            }
+
+        }
+
+        public List<DeviceDatabase> GetDeviceDatabase()
+        {
+            using (IDbConnection con = new SqlConnection(Global.ConnectionString))
+            {
+                if (con.State != ConnectionState.Open) con.Open();
+
+                // Extracting All the List of Database in System Configuration
+                _oDeviceDatabase = con.Query<DeviceDatabase>("SELECT * FROM [dbo].[DeviceDatabase]").ToList();
+
+                // Condition to Check if the Databse is empty or not
+
+                if (_oDeviceDatabase != null && _oDeviceDatabase.Count > 0)
+                {
+                    return _oDeviceDatabase;
+                }
+
+            }
+            return null;
+        }
 
         public List<SytemDatabase>? GetSystemDatabase()
         {

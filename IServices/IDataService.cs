@@ -8,6 +8,9 @@ namespace Team_KisaanPro.IServices
 
         List<UserDatabase> GetUserDatabase();
 
+        List<DeviceDatabase> GetDeviceDatabase();
+
+        public void AddDeviceToDatabase(string DeviceId, string Status);
 
     }
 }

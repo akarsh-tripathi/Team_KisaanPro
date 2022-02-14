@@ -1,0 +1,64 @@
+﻿
+<style>
+    .bg{
+        position: center;
+        width: 598px;
+        height: 413px;
+        left: 598px;
+        top: 598px;
+
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+
+        background: linear-gradient(180deg, rgba(213, 52, 52, 0) 17.19%, #EE0202 88.38%);
+        border-radius: 10px;
+        
+    }
+
+    .div1 { grid-area: 1 / 3 / 2 / 4;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 64px;
+        line-height: 75px;
+    }
+    .div2 { grid-area: 3 / 3 / 4 / 4; }
+    .div3 { grid-area: 5 / 2 / 6 / 5;
+            font-family: Roboto;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 23px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        align-content:center;
+        color: #FFFFFF;}
+</style>
+
+
+<div class="bg">
+    <div class="div1">
+        47°C
+    </div>
+    <br/>
+    <div class="div2">
+        <img src="/Assets/caution.png" height=190px onclick=""/>
+    </div>
+    
+    <br/>
+    <div class="div3">
+        Temperature higher than Normal
+    </div>
+    
+  
+</div>
+
+
+@code {
+    //List<String> MockData = List<String>();
+    
+}

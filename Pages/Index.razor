@@ -1,7 +1,10 @@
 ﻿@page "/"
 @using Microsoft.CognitiveServices.Speech
+@using Team_KisaanPro.IServices
+@using Team_KisaanPro.Pages.DashboardValues
 @using Twilio
 @using Twilio.Rest.Api.V2010.Account
+@inject IDataService DataService;
 
 <PageTitle>Kisaan Pro</PageTitle>
 
@@ -50,8 +53,8 @@ border-radius: 9px; background-color:#F5F5F5 ">
           
                 <MudTextField @bind-Value="TextValue" Label="Enter Device ID to add" style="width:auto; height: 50px;border: 1px solid #AFAFAF;
                                                                                             border-radius: 9px;" Variant="Variant.Filled"></MudTextField>
-                <MudButton Link="" Variant="Variant.Outlined" Style=" color: white; width:35%; height: 50px; margin-top: 5px;margin-left: 15px;background: #0E6938;
-                                                                     border-radius: 7.5px;" >Register</MudButton>
+                <MudButton name="RegisterButton" Link="" Variant="Variant.Outlined" Style=" color: white; width:35%; height: 50px; margin-top: 5px;margin-left: 15px;background: #0E6938;
+                                                                     border-radius: 7.5px;" OnClick="AddDevice" >Register</MudButton>
             </div>
 
             <br>
@@ -65,12 +68,7 @@ border-radius: 9px; background-color:#F5F5F5 ">
 
             <br>
 
-            @if(DeviceStatusbtn){
-                
-               <DeviceStatus/>
-
-                
-            }
+           
             <hr style="width:50%; margin: auto;"/>
 
             <br>
@@ -82,32 +80,68 @@ border-radius: 9px; background-color:#F5F5F5 ">
                 <MudButton Link="" Variant="Variant.Outlined" Style="color: white; width: 20%; height: 30px; background: #EE6002;margin-right: 20px;
                                                                      border: 1px solid #EE6002;
                                                                      box-sizing: border-box;
-                                                                     border-radius: 15px; " >Temperature</MudButton>
+                                                                     border-radius: 15px; " OnClick="(()=>TempStatusbtn=TempStatusbtn==true?false:true)">Temperature</MudButton>
                 <MudButton Link="" Variant="Variant.Outlined" Style="color: #5A5959; width: 20%; height: 30px; background: white;margin-right: 20px;
                                                                      border: 1px solid #EE6002;
                                                                      box-sizing: border-box;
-                                                                     border-radius: 15px;" >pH level</MudButton>
+                                                                     border-radius: 15px;" OnClick="(()=>pHStatusbtn=pHStatusbtn==true?false:true)">pH level</MudButton>
                 <MudButton Link="" Variant="Variant.Outlined" Style="color: #5A5959; width: 20%; height: 30px; background: white;margin-right: 20px;
                                                                      border: 1px solid #EE6002;
                                                                      box-sizing: border-box;
-                                                                     border-radius: 15px;" >Humidity</MudButton>
+                                                                     border-radius: 15px;" OnClick="(()=>HumidityStatusbtn=HumidityStatusbtn==true?false:true)">Humidity</MudButton>
 
                 <MudButton Link="" Variant="Variant.Outlined" Style="color: #5A5959; width: 20%; height: 30px; background: white;margin-right: 20px;
                                                                      border: 1px solid #EE6002;
                                                                      box-sizing: border-box;
-                                                                     border-radius: 15px;" >Check your Status</MudButton>                                                     
+                                                                     border-radius: 15px;" OnClick="(()=>DeviceStatusbtn=DeviceStatusbtn==true?false:true)" >Check your Status</MudButton>                                                     
                                                                     
                 <br> 
-                    <div style="display:flex; justify-items:inherit;margin:10px">
-                        <h2 class="DatatoShow">39 C</h2> 
-                        <h7 class="Datawarning" style="color: Red; ">  Warning*</h7>
-                    </div>
-                    <div Style="height:100%; width:100%, border: 1px solid #000 ;margin:5px">
-                        <Charts/>
-                        <MudChart ChartType="ChartType.Line" ChartSeries="@Series" @bind-SelectedIndex="index" XAxisLabels="@XAxisLabels" style="height:400px" ChartOptions="chartOptions"></MudChart>
-                    </div>
+                   
+                    <br/>
 
+                     @if(DeviceStatusbtn){
+
+                    TempStatusbtn = false;
+                    HumidityStatusbtn=false;
+                    pHStatusbtn = false;
+                    <DeviceStatus/>       
+                     }
+                @if (TempStatusbtn)
+                {
+                    DeviceStatusbtn = false;
+                    //TempStatusbtn = false;
+                    HumidityStatusbtn=false;
+                    pHStatusbtn = false;
+                    <ValuesDashboard/>
+                   
+                }
+                @if (HumidityStatusbtn)
+                {
+                    DeviceStatusbtn = false;
+                    TempStatusbtn = false;
+                    //HumidityStatusbtn=false;
+                    pHStatusbtn = false;
+                    <div Style="height:100%; width:100%, border: 1px solid #000 ;margin:5px; align-items:center; justify-content:center">
+                        <HumidityDashboard />
+                    </div>
+                   
+                        @*<Charts/>
+                            <MudChart ChartType="ChartType.Line" ChartSeries="@Series" @bind-SelectedIndex="index" XAxisLabels="@XAxisLabels" style="height:400px" ChartOptions="chartOptions"></MudChart>*@
                     
+                }
+                @if (pHStatusbtn)
+                {
+                    DeviceStatusbtn = false;
+                    TempStatusbtn = false;
+                    HumidityStatusbtn=false;
+                    pHStatusbtn = false;
+
+
+                        @*<Charts/>
+                            <MudChart ChartType="ChartType.Line" ChartSeries="@Series" @bind-SelectedIndex="index" XAxisLabels="@XAxisLabels" style="height:400px" ChartOptions="chartOptions"></MudChart>*@
+        
+                }
+
             
             </div>
             <br>
@@ -155,9 +189,7 @@ border-radius: 9px; background-color:#F5F5F5 ">
                 
             </div>
 
-            <div class="nav">
-                
-            </div>
+           
         </div>
     </section>
 </div>
@@ -165,20 +197,24 @@ border-radius: 9px; background-color:#F5F5F5 ">
 @code{
     public string _PumpStartMsg="none";
     public string Time =DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss");
-    public string TextValue;
+    public string TextValue ="";
     public bool DeviceStatusbtn {get; set;}=false;
+    public bool TempStatusbtn {get; set;}=false;
+    public bool HumidityStatusbtn {get; set;}=false;
+    public bool pHStatusbtn {get; set;}=false;
     public bool SolarStatusbtn {get; set;}=false;
     public void LastUpdateTime(){
         // Reload Features & Functions
     }
-
+     
     //Display Data
 
     RenderFragment _content =
     @<div>
         <p>Name- IDH 1001</p>
         <p>Status- Running</p>
-    </div>;
+    </div>
+    ;
 
 
     // TTS Function
@@ -224,5 +260,26 @@ border-radius: 9px; background-color:#F5F5F5 ">
         new ChartSeries() { Name = "Temperature", Data = new double[] { 10, 12, 12,14,19, 22, 25 } },
     };
     public string[] XAxisLabels = {"28 Jan", "29 Jan", "30 Jan", "31 Jan", "1 Feb", "2 Feb" ,"3 Feb",};
-   
+
+
+    // Adding of Device
+    private void AddDevice(){
+        if (!String.IsNullOrEmpty(TextValue)){
+            DataService.AddDeviceToDatabase(TextValue,"False");
+
+            TextValue = "The Device Is Added";
+            System.Threading.Thread.Sleep(2000);
+            TextValue = "";
+
+        }
+        else
+        {
+           Console.WriteLine("No Text Entered"); 
+        }
+        
+
+    }
+    
+
+
 }
