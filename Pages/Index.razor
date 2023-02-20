@@ -185,8 +185,8 @@ border-radius: 9px; ">
     // Using Messaging Service
     void MessagingService( string Command )
     {
-        string accountSid = "ACdabe31cf385a7f2499e5bb4705c8c9c5";
-        string authToken = "e19cbfc5cf6c0cfc5b49f2c819434b3c";
+        string accountSid = "*";
+        string authToken = "*";
         TwilioClient.Init(accountSid,authToken);
 
         if(Command != "Stop" ?true : false)
