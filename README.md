@@ -1,4 +1,4 @@
-<h1 align="center">CryptoCurrency-App</h1> <br>
+<h1 align="center">Team Kisaan Pro</h1> <br>
 
 ## Tech Stack Involved
 
