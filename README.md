@@ -2,6 +2,8 @@
 <p align="center">
   <h3 align="center">Kisaan Pro 
 (Microsoft Imagine Cup'22 National RunnerUp)</h3>
+<!-- ![Screen Shot](images/kisaanpro.png) -->
+<img src="./images/kisaanpro.png"/>
 
   <p align="center">
     An ML-based Agrotech product to help farmers grow more!  
@@ -18,52 +20,48 @@
 
 * [About the Project](#about-the-project)
 * [Built With](#built-with)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
-* [Authors](#authors)
-* [Acknowledgements](#acknowledgements)
 
 ## About The Project
 
-![Screen Shot](images/screenshot.png)
 
-Won 3 National Titles for being the most cost effective & Innovative Product 
+Won 3 National Titles for being the most cost-effective & Innovative Product 
 
 * National Runnerup 2'nd - Microsoft Imagine Cup 2022
 * National Runnerup - Smart India Hackathon, Govt. of India 
 * National Runner up - Meraki B-Plan Challenge
 
-According to UN Report, We are moving towards a global food & water crisis in next 100 years if we didn't made our farming more techoadvances & make the best use of technology. 
+![Screen Shot](images/cover.png)
+
+According to UN Report, We are moving towards a global food & water crisis in the next 100 years if we didn't make our farming more tech advances & make the best use of technology. 
 
 Especially in India, the farmers are lacking the specific use of agrotech advancements and ML due to many factors
 * 2G network availability 
-* Lowend devices that do not support high functionality applications 
-* Regular Power cutoff in most parts of areas.
-* Language & Geography keeps on changing after every 100 Kms 
+* Lowend devices that do not support high-functionality applications 
+* Regular Power cut off in most parts of areas.
+* Language & Geography keeps on changing every 100 kms 
 * No information about Agrotech infrastructure
 * Delay in taking action in cases of Field fires 
 
 
 The Solution:
 
-* Building IOT Product which will even run on 2G Network and can send data seamlessly 
-* ML based Irrigations recommendations using Real-Time Data.
-* UI that can run on lowend devices and can be used to transfer data at an ultimate constant speed.
-* Use of camera to detect pesticides in the farm and give 80% accurate analysis using the fast & low accuracy ML model (VGG16) and an ML model that give accurate result and recommendations using the same in the next hour (In the view of low speed upload)
+* Building IOT Product that will even run on a 2G Network and can send data seamlessly 
+* ML-based Irrigations recommendations using Real-Time Data.
+* UI that can run on low-end devices and can be used to transfer data at an ultimate constant speed.
+* Use of camera to detect pesticides in the farm and give 80% accurate analysis using the fast & low accuracy ML model (VGG16) and an ML model that give accurate result and recommendations using the same in the next hour (In the view of low-speed upload)
 
 
-The application was built using some key points that keep UX of Farmers in mind-
+The application was built using some key points that keep the UX of Farmers in mind-
 * Visible in Broad daylight 
 * Using of skeleton-based model for the UI and fast rendering
-* Using color coded schemes to make the use of application super easy & useful
+* Using color-coded schemes to make the use of the application super easy & useful
 * Use of Graphics to make the user understand the application usage
 
 
 ## Built With
-
+![Product Hardware](images/product.jpg)
 The Hardware is built on top of an Arduino UNO Microcontroller with - 
 * ESP8266 for wifi & Bluetooth communications 
 * GSM/GPRS module for 2 G-based communications 
@@ -80,10 +78,11 @@ The Software was built on top of
 * Postman for API connection b/w database & hardware 
 * Azure for hosting applications & databases for instant data!
 
+![Screen Shot](images/achivement.jpg)
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 * If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/akarsh-tripathi/Team_KisaanPro/issues/new) to discuss it, or directly create a pull request after you edit the *README.md* file with necessary changes.
 * Please make sure you check your spelling and grammar.
 * Create individual PR for each suggestion.
@@ -101,12 +100,5 @@ Contributions are what make the open source community such an amazing place to b
 
 Distributed under the MIT License. See [LICENSE](https://github.com/akarsh-tripathi/Team_KisaanPro/blob/main/LICENSE.md) for more information.
 
-## Authors
 
-* **Akarsh Tripathi** - ** - [Akarsh Tripathi](https://github.com/akarsh-tripathi/) - **
 
-## Acknowledgements
-
-* [ShaanCoding](https://github.com/ShaanCoding/)
-* [Othneil Drew](https://github.com/othneildrew/Best-README-Template)
-* [ImgShields](https://shields.io/)
